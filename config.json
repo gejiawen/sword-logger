@@ -1,0 +1,16 @@
+{
+    "logFolder": "./logs",
+    "logFilePrefix": "venus-msite",
+    "logFileSuffix": ".log",
+    "logRecordName": "venus-msite",
+    "enableLogSrc": false,
+    "enableSaveInterval": false,
+    "logSaveInterval": 5e3,
+    "enableSaveBuffer": false,
+    "logSaveBuffer": 10,
+    "enableReqTimeoutLimit": false,
+    "reqTimeoutLimit": 1e3,
+    "enableRequestDetail": true,
+    "enableResponseDetail": true,
+    "enableTemplateDetail": false
+}
