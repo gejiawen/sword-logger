@@ -1,6 +1,6 @@
 {
   "name": "sword-logger",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "logger middleware for sword system",
   "main": "index.js",
   "scripts": {
