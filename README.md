@@ -14,7 +14,8 @@ $ npm install --save sword-logger
 var koa = require('koa')
 var swordLogger = require('sword-logger');
 
-koa.use(swordLogger(opts))
+var app = koa()
+app.use(swordLogger(opts))
 ```
 
 log file eg, `sword-logger-20160926+0800.log`,
@@ -29,13 +30,26 @@ log file content eg,
 extra field as follows,
 
 - `category`
-- `req_id`
+- `reqId`
 - `label`
 - `duration`
 - `template`
 - `request`
 - `response`
 
+## Methods
+
+- `fatal`
+- `error`
+- `warn`
+- `info`
+- `debug`
+- `trace`
+- `request`
+- `response`
+- `template`
+
+specify `example/test.js` to get more usage.
 
 ## Configuration
 
