@@ -1,6 +1,6 @@
 # sword-logger [![NPM version](https://badge.fury.io/js/sword-logger.svg)](https://npmjs.org/package/sword-logger) [![Build Status](https://travis-ci.org/gejiawen/sword-logger.svg?branch=master)](https://travis-ci.org/gejiawen/sword-logger)
 
-> logger middleware for sword system
+> logger middleware for sword group
 
 ## Installation
 
