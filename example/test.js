@@ -5,7 +5,9 @@ var logger = require('../lib/logger')
 var app = koa()
 
 app.use(bodyparser())
-app.use(logger())
+app.use(logger({
+    logFolder: './logs'
+}))
 
 app.use(function *(next) {
     var url = this.url.replace(/^(\/\w*)\?.+/, '$1')
