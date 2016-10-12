@@ -17,13 +17,13 @@ var swordLogger = require('sword-logger');
 koa.use(swordLogger(opts))
 ```
 
-log file eg, `sword-logger-2016-9-26.log`,
+log file eg, `sword-logger-20160926+0800.log`,
 
 log file content eg,
 
 ```
-{"name":"sword-logger-2016-9-26","hostname":"Gejiawen.local","pid":71410,"level":30,"category":"template","req_id":"06b0bb2e-72dd-449e-b693-cef8738bdd85","label":"start","msg":"POST localhost:8000/user","time":"2016-09-26T10:32:08.472Z","v":0}
-{"name":"sword-logger-2016-9-26","hostname":"Gejiawen.local","pid":71410,"level":30,"category":"template","req_id":"06b0bb2e-72dd-449e-b693-cef8738bdd85","label":"finished","status":200,"duration":1,"msg":"POST localhost:8000/user 200 1ms","time":"2016-09-26T10:32:08.473Z","v":0}
+{"name":"sword-logger-20160926+0800","hostname":"Gejiawen.local","pid":71410,"level":30,"category":"template","req_id":"06b0bb2e-72dd-449e-b693-cef8738bdd85","label":"start","msg":"POST localhost:8000/user","time":"2016-09-26T10:32:08.472Z","v":0}
+{"name":"sword-logger-20160926+0800","hostname":"Gejiawen.local","pid":71410,"level":30,"category":"template","req_id":"06b0bb2e-72dd-449e-b693-cef8738bdd85","label":"finished","status":200,"duration":1,"msg":"POST localhost:8000/user 200 1ms","time":"2016-09-26T10:32:08.473Z","v":0}
 ```
 
 extra field as follows,
@@ -75,6 +75,12 @@ extra field as follows,
 - `enableResponseDetail`, enable response log detail or not
 - `enableTemplateDetail`, enable template render log or not
 
+
+## TODO
+
+- 计时器跨天判定
+- 拆分template分类至jade和页面交互
+- 缓存写日志策略
 
 ## License
 
