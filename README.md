@@ -21,6 +21,7 @@ request、response、render、action
 - info
 - warn
 - error
+- fatal
 
 ## Installation
 
@@ -35,8 +36,12 @@ var koa = require('koa')
 var bodyparser = require('koa-bodyparser')
 var swordLogger = require('sword-logger');
 
+var opts = {
+    logFolder: './logs'
+}
+
 var app = koa()
-app.use(bodyparser()) // use bodyparser before swordLogger when you need enableActionLogger
+app.use(bodyparser())       // use bodyparser before swordLogger when you need enableActionLogger
 app.use(swordLogger(opts))
 ```
 
@@ -52,7 +57,7 @@ log file content eg,
 extra field as follows,
 
 - `category`
-- `reqId`
+- `loggerId`
 - `label`
 - `duration`
 - `request`
@@ -79,27 +84,31 @@ specify `example/test.js` to get more usage.
 `opts` default value as follows,
 
 ```
-{
-    "logFolder": "",
-    "logFilePrefix": "sword-logger",
-    "logFileSuffix": ".log",
-    "logRecordName": "sword-logger-" + getCurrentDateString(),
-    "enableLogSrc": false,
-    "enableSaveInterval": false,
-    "logSaveInterval": 6e4,
-    "enableSaveBuffer": false,
-    "logSaveBuffer": 100,
-    "enableDurationLimit": true,
-    "durationLimit": 5e3,
-    "enableCache": true,
-    "enableRequestDetail": true,
-    "enableResponseDetail": true,
-    "enableActionLogger": true,
-    "enableActionDetail": true
+var default_options = {
+    logFolder: '',              // 必须
+    logSlice: true,             // 日志文件是否按天切片
+    middlewareModel: true,      // 是否被当做一个koa中间件使用
+    logFilePrefix: 'sword-logger',
+    logFileSuffix: '.log',
+    logRecordName: 'sword-logger-' + getCurrentDateString(),
+    enableLogSrc: false,
+    enableSaveInterval: false,
+    logSaveInterval: 6e4,
+    enableSaveBuffer: false,
+    logSaveBuffer: 100,
+    enableDurationLimit: true,
+    durationLimit: 5e3,
+    enableCache: true,
+    enableRequestDetail: true,
+    enableResponseDetail: true,
+    enableActionLogger: true,
+    enableActionDetail: true
 }
 ```
 
 - `logFolder`, log folder, **REQUIRED**
+- `logSlice`, slice log file or not
+- `middlewareModel`, use as a koa middleware or just a common module
 - `logFilePrefix`, log file prefix
 - `logFileSuffix`, log file suffix
 - `logRecordName`, logger instance name
@@ -110,6 +119,7 @@ specify `example/test.js` to get more usage.
 - `logSaveBuffer`, buffer records number, default is 100
 - `enableDurationLimit`, enable duration timeout limit or not
 - `durationLimit`, duration timeout limit, default is 5000ms, sword-logger use `WARN` level when over duration timeout limit 
+- `enableCache: true,`, what's this fucking do? I forget it myself
 - `enableRequestDetail`, enable request log detail or not
 - `enableResponseDetail`, enable response log detail or not
 - `enableActionLogger`, enable action log or not
